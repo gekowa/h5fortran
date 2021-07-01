@@ -85,6 +85,7 @@ endfunction(get_flags)
 function(get_link_flags raw outvar)
 
 string(REGEX MATCHALL "(^| )(-Wl,|-L|-Xlinker +)([^\" ]+|\"[^\"]+\")" _flags "${raw}")
+string(REPLACE ";" " " _flags "${_flags}")
 
 set(${outvar} "${_flags}" PARENT_SCOPE)
 
@@ -226,6 +227,7 @@ endif()
 
 set(MPI_C_INCLUDE_DIR ${MPI_C_INCLUDE_DIR} PARENT_SCOPE)
 set(MPI_C_LIBRARY ${MPI_C_LIBRARY} PARENT_SCOPE)
+set(MPI_C_LINK_FLAGS ${MPI_C_LINK_FLAGS} PARENT_SCOPE)
 set(MPI_C_FOUND true PARENT_SCOPE)
 
 endfunction(find_c)
@@ -338,6 +340,7 @@ endif()
 
 set(MPI_CXX_INCLUDE_DIR ${MPI_CXX_INCLUDE_DIR} PARENT_SCOPE)
 set(MPI_CXX_LIBRARY ${MPI_CXX_LIBRARY} PARENT_SCOPE)
+set(MPI_CXX_LINK_FLAGS ${MPI_CXX_LINK_FLAGS} PARENT_SCOPE)
 set(MPI_CXX_FOUND true PARENT_SCOPE)
 
 endfunction(find_cxx)
@@ -464,6 +467,7 @@ endif()
 
 set(MPI_Fortran_INCLUDE_DIR ${MPI_Fortran_INCLUDE_DIR} PARENT_SCOPE)
 set(MPI_Fortran_LIBRARY ${MPI_Fortran_LIBRARY} PARENT_SCOPE)
+set(MPI_Fortran_LINK_FLAGS ${MPI_Fortran_LINK_FLAGS} PARENT_SCOPE)
 set(MPI_Fortran_FOUND true PARENT_SCOPE)
 
 endfunction(find_fortran)
