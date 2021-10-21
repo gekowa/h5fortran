@@ -15,7 +15,8 @@ on:
       - "**.cmake"
       - "**/CMakeLists.txt"
       - ".github/workflows/intel-oneapi.yml"
-
+  release:
+    types: [published]
 
 jobs:
 
